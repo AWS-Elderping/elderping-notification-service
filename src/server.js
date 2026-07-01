@@ -50,7 +50,6 @@ async function handleNotificationDispatch(userId, type, payload) {
   }
 
   const authServiceUrl = process.env.AUTH_SERVICE_URL || 'http://auth-service:3000';
-  const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
   
   const userResponse = await fetch(`${authServiceUrl}/users/${userId}`);
   if (!userResponse.ok) {
